@@ -52,3 +52,23 @@ chore: setup husky and lint-staged
 
 Husky + lint-staged + commitlint vérifient automatiquement
 le format du code et des messages de commit.
+
+## Workflow Git
+
+```mermaid
+gitGraph
+  commit id: "init"
+  branch dev
+  checkout dev
+  branch feat/ma-feature
+  checkout feat/ma-feature
+  commit id: "feat: ..."
+  checkout dev
+  merge feat/ma-feature
+  checkout main
+  merge dev
+```
+
+- `main` : production, protégée
+- `dev` : intégration, protégée
+- branches éphémères (`feat/`, `fix/`, ...) : créées depuis `dev`, fusionnées par PR, puis supprimées
